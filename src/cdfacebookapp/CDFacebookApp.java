@@ -21,7 +21,7 @@ public class CDFacebookApp {
         face.Config();
         int opcion = -7;
         do {
-            opcion = Integer.parseInt(JOptionPane.showInputDialog("Pulsa:\n1.Bucar usuario\n2.Publicar estado\n3.Publicar post"));
+            opcion = Integer.parseInt(JOptionPane.showInputDialog("Pulsa: \n1.Bucar usuario\n2.Publicar estado\n3.Publicar post"));
             switch (opcion) {
                 case 1:
                     face.buscarUsuario(JOptionPane.showInputDialog("Indica el usuario a buscar"));
