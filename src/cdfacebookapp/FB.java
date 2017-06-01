@@ -25,17 +25,24 @@ public class FB {
 
     Facebook facebook;
 
+    /**
+     * Inicia la instancia de FB
+     */
     public void Config() {
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true)
-                .setOAuthAppId("1708752362750702")
-                .setOAuthAppSecret("acab787dfca5bc6f057dcc9864ad2987")
-                .setOAuthAccessToken("EAAYSGemXQu4BAM9b0wUSiUZAqu39KZA3wzbG89Tk207ZBIRDjPp3cHCEoZCMJyPXRVjHJs5PHnuo4jJ7cYleYsDWnEzhSD1yVVAwZBZC9HZA0Ys0xmjyRnGwF7ZCRNZAVIZBJxsHSwbcYpJCZC9BUwmnWID0OkvCO2T6i5wpPdW3ipoHJb0ceceNnvWPdV8vD7EPKMZD")
+                .setOAuthAppId("**********")
+                .setOAuthAppSecret("**********")
+                .setOAuthAccessToken("**********")
                 .setOAuthPermissions("email,publish_stream,publish_actions,...");
         FacebookFactory ff = new FacebookFactory(cb.build());
         facebook = ff.getInstance();
     }
 
+    /**
+     * Busca usuarios con el nombre indicado
+     * @param usuario el nombre que queremos buscar
+     */
     public void buscarUsuario(String usuario) {
         try {
             ResponseList<User> results = facebook.searchUsers(usuario);
@@ -50,6 +57,10 @@ public class FB {
         }
     }
 
+    /**
+     * Publica un estado en el muro
+     * @param mensaje Texto que queremos publicar
+     */
     public void publicarEstado(String mensaje) {
         try {
             facebook.postStatusMessage(mensaje);
@@ -58,6 +69,9 @@ public class FB {
         }
     }
 
+    /**
+     * Publica un post predefinido con una imagen
+     */
     public void publicarPost() {
         try {
             PostUpdate post = new PostUpdate(new URL("http://facebook4j.org"))
